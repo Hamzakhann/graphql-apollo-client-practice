@@ -45,6 +45,7 @@ const Profile = () => (
     {({ data, loading, error, fetchMore }) => {
       console.log(data, "data.......");
       console.log(loading, "loadinng.......");
+      console.log(error);
       if (error) {
         return <ErrorMessage error={error} />;
       }
@@ -56,6 +57,7 @@ const Profile = () => (
           loading={loading}
           repositories={data.viewer.repositories}
           fetchMore={fetchMore}
+          entry={"viewer"}
         />
       );
     }}

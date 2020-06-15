@@ -15,8 +15,8 @@ const GITHUB_BASE_URL = "https://api.github.com/graphql";
 const httpLink = new HttpLink({
   uri: GITHUB_BASE_URL,
   headers: {
-    authorization: `Bearer b12e429fce8c3a833551a895d8c926221448374e`
-  }
+    authorization: `Bearer  a2508292b3632847543817aed56c3b758e37a447`,
+  },
 });
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -24,13 +24,14 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
   if (networkError) {
     // do something with network error
+    console.log(networkError);
   }
 });
 const link = ApolloLink.from([errorLink, httpLink]);
 const cache = new InMemoryCache();
 const client = new ApolloClient({
   link,
-  cache
+  cache,
 });
 
 ReactDOM.render(
