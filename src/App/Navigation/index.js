@@ -40,7 +40,6 @@ class OrganizationSearch extends React.Component {
 
   onSubmit = (event) => {
     this.props.onOrganizationSearch(this.state.value);
-
     event.preventDefault();
   };
 
